@@ -1,27 +1,29 @@
 # RouterExample
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
+Router in angular are used to configure and navigate between different urls
 
-## Development server
+To use Router you need to configure them in app.module.ts 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+You need to import Routes and RouterModule
 
-## Code scaffolding
+`Example:`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+RouterModule.forRoot([
+  { path:'',component:HomeComponent },
+  { path:'users',component:UsersComponent },
+  { path:'servers',component:ServersComponent }
+]);
 
-## Build
+To configure dynamic values as part of url you need to make use of `:`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+`{ path:'users/:id',component:UsersComponent }`
 
-## Running unit tests
+`<router-outlet></router-outlet>` -- This should be defined in your .html file where we want to render the component when the above is loaded
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+routerLink -- This more like href but her we replace with path url as below
 
-## Running end-to-end tests
+`<a routerLink="/servers">Servers</a>`
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+routerLinkActive -- is styling to added to let know which element is active as below
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+`routerLinkActive="active"` 
