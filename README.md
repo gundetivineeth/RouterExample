@@ -27,3 +27,29 @@ routerLink -- This more like href but her we replace with path url as below
 routerLinkActive -- is styling to added to let know which element is active as below
 
 `routerLinkActive="active"` 
+
+Navigating programatically using below 
+`this.router.navigate([''edit])`
+
+where router:Router
+
+to get parameter from the router parameter in component using the following
+private activeRoute:ActivatedRoute
+
+`this.activeRoute.snapshot.params['id'];`
+
+to reactively update the ActivatedRoute parameters use the following 
+
+this.activeRouter.params.subscribe(
+      (params:Params) => {
+        this.server = this.serversService.getServer(+params['id']);
+      }
+    )
+
+  Here `+` beside indicates that value is convert from string to respective type
+
+  `children` tag is used to configure the suburl like /server/:id or user/:name
+
+  `this.activeRoute.snapshot.queryparam;` used to retrieve queryparam same for fragment as well
+
+  `fragment` is part of url just like `#loading`
