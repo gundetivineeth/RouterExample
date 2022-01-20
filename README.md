@@ -53,3 +53,5 @@ this.activeRouter.params.subscribe(
   `this.activeRoute.snapshot.queryparam;` used to retrieve queryparam same for fragment as well
 
   `fragment` is part of url just like `#loading`
+
+`path:**` in the app.module.ts indicates that if the url other than above that is trying to fetch it will fetch notfoud component for all other urls 
