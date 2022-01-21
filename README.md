@@ -55,3 +55,24 @@ this.activeRouter.params.subscribe(
   `fragment` is part of url just like `#loading`
 
 `path:**` in the app.module.ts indicates that if the url other than above that is trying to fetch it will fetch notfoud component for all other urls 
+
+`Guard` is the concept where we protect the router by authentication
+
+{ path:'servers',component:ServersComponent, canActivate:[AuthGuardService] }
+
+`canActivate` will protect both parent and its child routers -- 
+
+AuthGuardService will implement canActivate where it return observable or promise 
+with boolean -- based on the return value from canActivate method router is protected
+
+Similarly of we need to give protection only to child routers but not parent than
+we can use `canActivateChild` and implement canActivateChild 
+
+you can see the difference between users and server but running the application where users parent is not protected but child url are protected by `canActivateChild` so you can access users but when you try to access child it will redirect
+
+`canDeactivate` is used when we dont wanted to move away from the component by mistake when user click on the back without saving the data
+Here will give alert to user that are you sure about going back with out updating the details.
+please check edit-server.component to better understanding
+
+`data:{mesasge:'page not found'}` this is used when we need to pass static data from route
+
